@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кукі Політика</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        #bio {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+            text-align: left;
+            z-index: 1;
+        }
+        #cookieModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2rem;
+            z-index: 2;
+            text-align: center;
+        }
+        .btn {
+            padding: 15px 30px;
+            font-size: 2rem;
+            margin-top: 20px;
+            cursor: pointer;
+            background: red;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+        .btn:hover {
+            background: darkred;
+        }
+        #screamer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            justify-content: center;
+            align-items: center;
+            z-index: 3;
+        }
+        #screamer img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="bio">
+        <p><strong>Про мене:</strong></p>
+        <p>Мені 14 років.</p>
+        <p>Люблю програмувати та створювати круті проекти.</p>
+    </div>
+    <div id="cookieModal">
+        <p>Щоб продовжити користування сайтом, підтвердіть використання файлів cookie.</p>
+        <button class="btn" onclick="acceptCookies()">Підтвердити</button>
+    </div>
+    <div id="screamer">
+        <img src="бабайка.jpg" alt="Скрім">
+    </div>
+    <audio id="prankAudio" loop>
+        <source src="https://files.catbox.moe/pix4xo.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        function acceptCookies() {
+            document.getElementById("cookieModal").style.display = "none";
+            const audio = document.getElementById("prankAudio");
+            audio.play();
+            setTimeout(() => {
+                document.documentElement.requestFullscreen();
+                document.getElementById("screamer").style.display = "flex";
+            }, 500);
+        }
+    </script>
+</body>
+</html>
